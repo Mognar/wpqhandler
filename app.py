@@ -23,9 +23,14 @@ from flask import render_template
 app = Flask(__name__)
 
 @app.route('/')
-@app.route('/index')
+def student():
+   return render_template('student.html')
+
+@app.route('/index',methods = ['POST', 'GET'])
 def index():
-    return render_template('index.html', questionsoutput=questions)
+    if request.method == 'POST':
+      result = request.form
+      return render_template('index.html', questionsoutput=questions)
 #Code for loading data in from a URL
 import requests
 
@@ -253,7 +258,7 @@ stub='http://lda.data.parliament.uk'.strip('/')
 if SINCE:
     url='{}/{}.json?{}'.format(stub,'commonswrittenquestions','min-dateTabled={}'.format(PERIOD))
 else:
-    url='{}/{}.json?dateTabled={}&{}'.format(stub,'commonswrittenquestions','2017-09-14','_pageSize=500')
+    url='{}/{}.json?dateTabled={}&{}'.format(stub,'commonswrittenquestions',result,'_pageSize=500')
 
 #The API returns a list of written questions on/since the specified date
 items=loader(url)
