@@ -3,4 +3,4 @@ requests
 pandas
 seaborn
 datetime
-tkinter
+python3-tk
