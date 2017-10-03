@@ -28,6 +28,7 @@ def student():
 
 @app.route('/signup',methods = ['POST'])
 def signup():
+    global result
     result = request.form['Date']
     return redirect('/index')
    
