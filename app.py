@@ -17,8 +17,8 @@
 # ## Supporting Code Area ...  NO NEED TO READ THIS
 
 # In[5]:
-
-from flask import Flask
+import requests
+from flask import Flask, request, redirect
 from flask import render_template
 app = Flask(__name__)
 
@@ -38,7 +38,7 @@ def signup():
 def index():
 
    #Code for loading data in from a URL
-   import requests
+
 
    #Get data from URL
    def getURL(url,quiet=False):
