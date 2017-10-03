@@ -54,7 +54,7 @@ def loader(url,quiet=True):
 import pandas as pd
 
 #Support for inline charts
-get_ipython().magic(u'matplotlib inline')
+%matplotlib inline
 
 #
 from matplotlib import pyplot as plt
