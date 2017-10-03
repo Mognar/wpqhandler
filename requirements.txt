@@ -3,4 +3,3 @@ requests
 pandas
 seaborn
 datetime
-python3-tk
