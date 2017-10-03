@@ -60,10 +60,10 @@ import pandas as pd
 #from matplotlib import pyplot as plt
 
 #Support for prettier chart styling
-import seaborn as sns
+#import seaborn as sns
 
 #Charts have stylefiles - like HTML has CSS stylesheets
-sns.set_style("whitegrid")
+#sns.set_style("whitegrid")
 
 
 # In[7]:
