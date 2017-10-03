@@ -1,1 +1,1 @@
-web: python Written+Questions+Handler.py ${PORT}
+web gunicorn manage:app
