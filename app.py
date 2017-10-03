@@ -26,10 +26,15 @@ app = Flask(__name__)
 def student():
    return render_template('student.html')
 
-@app.route('/index',methods = ['POST', 'GET'])
+@app.route('/signup',methods = ['POST'])
+def signup():
+    result = request.form['Date']
+    return redirect('/index')
+   
+
+
+@app.route('/index')
 def index():
-    if request.method == 'POST':
-      result = request.form
       return render_template('index.html', questionsoutput=questions)
 #Code for loading data in from a URL
 import requests
