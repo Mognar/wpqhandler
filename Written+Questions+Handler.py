@@ -18,12 +18,12 @@
 
 # In[5]:
 
-#from flask import Flask
-#app = Flask(__name__)
+from flask import Flask
+app = Flask(__name__)
 
-#@app.route('/')
-#def index():
-    #return render_template('index.html', variable=questionsoutput)
+@app.route('/')
+def index():
+    return render_template('index.html', variable=questionsoutput)
 #Code for loading data in from a URL
 import requests
 
