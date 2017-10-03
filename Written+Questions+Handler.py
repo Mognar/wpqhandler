@@ -57,7 +57,7 @@ import pandas as pd
 #matplotlib inline
 
 #
-from matplotlib import pyplot as plt
+#from matplotlib import pyplot as plt
 
 #Support for prettier chart styling
 import seaborn as sns
