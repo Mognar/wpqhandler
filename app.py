@@ -23,8 +23,9 @@ from flask import render_template
 app = Flask(__name__)
 
 @app.route('/')
+@app.route('/index')
 def index():
-    return render_template('index.html', variable=questionsoutput)
+    return render_template('index.html', questionsoutput=questions)
 #Code for loading data in from a URL
 import requests
 
@@ -395,8 +396,8 @@ for h in handlerJobs:
 #Or more prettily...
 for h in handlerJobs:
     abtxt=''.join(['\n\t- {} for the {}'.format(b[1], b[0]) for b in h.itemCounts[0]])
-    questionsoutput = '----\n{} needs to tag {} questions:{}'.format(h.name, h.itemCounts[1],abtxt)
-    print(questionsoutput)
+    questions = '----\n{} needs to tag {} questions:{}'.format(h.name, h.itemCounts[1],abtxt)
+    print(questions)
 
 
 # ## General Reports
