@@ -417,7 +417,7 @@ def index():
        questionoutput = '{} needs to tag {} questions:{}<br />'.format(h.name, h.itemCounts[1],abtxt)
        questions.append(questionoutput)
          
-   return render_template('index.html', questionsoutput=questionoutput)
+   return render_template('index.html', questionsoutput=questions)
 
 # ## General Reports
 # 
