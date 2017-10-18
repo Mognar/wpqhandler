@@ -29,6 +29,8 @@ def student():
 @app.route('/signup',methods = ['POST'])
 def signup():
     global result
+    global handlerdata
+    handlerdata = request.form['Indexers']
     result = request.form['Date']
     return redirect('/index')
    
@@ -352,8 +354,10 @@ def index():
    # In[22]:
 
    #List of names of folk doing the work
-   handlers=['Clare','Ned','Jason','Bosede','Kirsty']
-
+   #'Clare','Ned','Jason','Bosede','Kirsty'
+   handlers=[]
+   handlers.append(handlerdata)
+   
    #Are there any requirements as to whom particular targeted answering bodies will specifically be allocated to?
    handlerPrefs={}
    #We should perhaps also check that there are no collisions in prefs
