@@ -413,11 +413,11 @@ def index():
    #Or more prettily...
    questions=[]
    for h in handlerJobs:
-       abtxt=''.join(['\n\t- {} for the {}'.format(b[1], b[0]) for b in h.itemCounts[0]])
-       questionoutput = '{} needs to tag {} questions:{}<br /><br />'.format(h.name, h.itemCounts[1],abtxt)
+       abtxt=''.join(['{} for the {}'.format(b[1], b[0]) for b in h.itemCounts[0]])
+       questionoutput = '{} needs to tag {} questions:{}<br />'.format(h.name, h.itemCounts[1],abtxt)
        questions.append(questionoutput)
          
-   return render_template('index.html', questionsoutput=questions)
+   return render_template('index.html', questionsoutput=questionoutput)
 
 # ## General Reports
 # 
