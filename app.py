@@ -31,7 +31,7 @@ def signup():
     global result
     result = request.form['Date']
     global handlerdata
-    handlerdata = request.form['Indexers']
+    handlerdata = request.form['Indexers[]']
     return redirect('/index')
    
 
@@ -356,6 +356,7 @@ def index():
    #List of names of folk doing the work
    #'Clare','Ned','Jason','Bosede','Kirsty'
    handlers=[]
+   handlerdata = filter(None, handlerdata)
    for handler in handlerdata:
       handlers.append(handler)
    
