@@ -356,10 +356,9 @@ def index():
    #List of names of folk doing the work
    #'Clare','Ned','Jason','Bosede','Kirsty'
    handlers=[]
-   handlerdata = filter(None, handlerdata)
-   for handler in handlerdata:
+   handlerdatafil = filter(None, handlerdata)
+   for handler in handlerdatafil:
       handlers.append(handler)
-   return handlers
    print(handlers)
 
    #Are there any requirements as to whom particular targeted answering bodies will specifically be allocated to?
