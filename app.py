@@ -26,12 +26,12 @@ app = Flask(__name__)
 def student():
    return render_template('student.html')
 
-@app.route('/signup',methods = ['POST'])
+@app.route('/signup',methods = ['GET','POST'])
 def signup():
     global result
     result = request.form['Date']
     global handlerdata
-    handlerdata = request.form.getlist['Indexers']
+    handlerdata = request.form.getlist('hello')
     return redirect('/index')
    
 
