@@ -31,7 +31,7 @@ def signup():
     global result
     result = request.form['Date']
     global handlerdata
-    handlerdata = request.form['Indexers[]']
+    handlerdata = request.form['Indexers']
     return redirect('/index')
    
 
