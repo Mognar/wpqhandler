@@ -359,7 +359,9 @@ def index():
    handlerdata = filter(None, handlerdata)
    for handler in handlerdata:
       handlers.append(handler)
-   
+   return handlers
+   print(handlers)
+
    #Are there any requirements as to whom particular targeted answering bodies will specifically be allocated to?
    handlerPrefs={}
    #We should perhaps also check that there are no collisions in prefs
