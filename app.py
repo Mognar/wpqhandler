@@ -356,7 +356,8 @@ def index():
    #List of names of folk doing the work
    #'Clare','Ned','Jason','Bosede','Kirsty'
    handlers=[]
-   handlers.append(handlerdata)
+   for handler in handlerdata:
+      handlers.append(handler)
    
    #Are there any requirements as to whom particular targeted answering bodies will specifically be allocated to?
    handlerPrefs={}
