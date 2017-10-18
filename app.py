@@ -34,7 +34,7 @@ def signup():
     handlerdata = request.form['Indexers']
     return redirect('/index')
    
-
+print(handlerdata)
 
 @app.route('/index')
 def index():
