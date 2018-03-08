@@ -96,20 +96,7 @@ def index():
    # 
    # Department allocation will be based on questions asked on a particular day or since a particular date (and inclusive of that date. (We could also generalise to a period - particular week or month or Parliamentary session.)
 
-   # In[9]:
-
-   PERIOD = this_month(iso=True)[0] #Last week returns the date of the first day (Monday) and last day (Sunday); pick the first
-   #PERIOD = yesterday(iso=True)
-
-   #If today is Monday, we maybe need a "last working day" or "since last working day".
-   #One heuristic may be - if today is not Monday, use yesterday, else use last Friday
-   #PERIOD= yesterday(iso=True) if today().strftime('%a')!='Mon' else day_lastweek(day=FRI,iso=True)
-
-
-   #If SINCE is True, lookup questions since that date and inclusive of it
-   #If SINCE is False, only lookup questions on that date
-   SINCE=False
-
+   # In[9]
 
    # ## Generate the API URL and Load the Data
 
@@ -119,11 +106,8 @@ def index():
 
    #http://lda.data.parliament.uk/commonswrittenquestions.json?_view=Written+Questions&_pageSize=10&_page=0
    stub='http://lda.data.parliament.uk'.strip('/')
-
-   if SINCE:
-       url='{}/{}.json?{}'.format(stub,'commonswrittenquestions','min-dateTabled={}'.format(PERIOD))
-   else:
-       url='{}/{}.json?dateTabled={}&{}'.format(stub,'commonswrittenquestions',result,'_pageSize=500')
+   
+   url='{}/{}.json?dateTabled={}&{}'.format(stub,'commonswrittenquestions',result,'_pageSize=500')
 
    #The API returns a list of written questions on/since the specified date
    items=loader(url)
