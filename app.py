@@ -32,6 +32,10 @@ def signup():
     result = request.form['Date']
     global handlerdata
     handlerdata = request.form.getlist('hello')
+   global handlerprefdata
+    handlerprefdata = request.form.getlist('preftext')
+      global handleravoiddata
+    handleravoiddata = request.form.getlist('avoidtext')
     return redirect('/index')
    
 
@@ -361,13 +365,13 @@ def index():
    print(handlers)
 
    #Are there any requirements as to whom particular targeted answering bodies will specifically be allocated to?
-   handlerPrefs={}
+   handlerPrefs={handlerprefdata}
    #We should perhaps also check that there are no collisions in prefs
    #For example, if two or more people have the same pref, randomly pick who will get it?
 
 
    #Are there any requirements as to which particular targeted answering bodies must not be allocated to a particular person?
-   handlerAvoid={}
+   handlerAvoid={handleravoiddata}
    ##We should probably check that a body is not completely avoided... i.e. at least one person exists to handle it
 
 
