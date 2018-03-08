@@ -32,9 +32,9 @@ def signup():
     result = request.form['Date']
     global handlerdata
     handlerdata = request.form.getlist('hello')
-   global handlerprefdata
+    global handlerprefdata
     handlerprefdata = request.form.getlist('preftext')
-      global handleravoiddata
+    global handleravoiddata
     handleravoiddata = request.form.getlist('avoidtext')
     return redirect('/index')
    
