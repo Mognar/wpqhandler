@@ -358,7 +358,7 @@ def index():
 
    #List of names of folk doing the work
    #'Clare','Ned','Jason','Bosede','Kirsty'
-   handlers=[]
+   handlers=handlerdata
    handlerdatafil = filter(None, handlerdata)
    for handler in handlerdatafil:
       handlers.append(handler)
