@@ -33,9 +33,9 @@ def signup():
     global handlerdata
     handlerdata = request.form.getlist('hello')
     global handlerprefdata
-    handlerprefdata = request.form.getlist('preftext')
+    handlerprefdata = request.form['preftext']
     global handleravoiddata
-    handleravoiddata = request.form.getlist('avoidtext')
+    handleravoiddata = request.form['avoidtext']
     return redirect('/index')
    
 
