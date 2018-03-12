@@ -53,16 +53,16 @@ def index():
        return r
 
    #Should build a proper recursive loader
-   def loader(url,quiet=True):
-       items=[]
-       done=False
-       r=getURL(url)
-       while not done:
-           items=items+r.json()['result']['items']
-           if 'next' in r.json()['result']:
-               r=getURL(r.json()['result']['next']+'&_pageSize=500')
-           else: done=True
-       return items
+   #def loader(url,quiet=True):
+    #   items=[]
+     #  done=False
+      # r=getURL(url)
+       #while not done:
+        #   items=items+r.json()['result']['items']
+         #  if 'next' in r.json()['result']:
+          #     r=getURL(r.json()['result']['next']+'&_pageSize=500')
+           #else: done=True
+       #return items
 
 
    # In[6]:
@@ -105,10 +105,10 @@ def index():
    #Quick peek at the API
 
    #http://lda.data.parliament.uk/commonswrittenquestions.json?_view=Written+Questions&_pageSize=10&_page=0
-   stub='http://lda.data.parliament.uk'.strip('/')
+   #stub='http://lda.data.parliament.uk'.strip('/')
    
-   url='{}/{}.json?dateTabled={}&{}'.format(stub,'commonswrittenquestions',result,'_pageSize=500')
-
+   #url='{}/{}.json?dateTabled={}&{}'.format(stub,'commonswrittenquestions',result,'_pageSize=500')
+   url='https://eqm-services.digiminster.com/writtenquestions/list?parameters.tabledWhenStart={}'.format(stub,result)
    #The API returns a list of written questions on/since the specified date
    items=loader(url)
    items[0]
@@ -122,8 +122,8 @@ def index():
 
    def getAnsweringBody(item):
        rel=[]
-       for body in item['AnsweringBody']:
-           rel.append(body['_value'])
+       for item['AnsweringBody']:
+           rel.append(['AnsweringBody'])
        return rel
 
 
