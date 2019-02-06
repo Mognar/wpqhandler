@@ -1,0 +1,12 @@
+<html>
+   <body>
+        <h1>Hi, indexing person!</h1>
+        {% for q in questions %}
+       <div><p><h3>{{ q.name }} has {{ q.itemCounts[1] }} question to index:</h3>
+        {% for i in q.itemCounts[0] %}
+            {{ i }}<br />
+        {% endfor %}</p></div>
+        {% endfor %}
+    {{ handling }}
+    </body>
+</html>
