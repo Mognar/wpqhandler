@@ -121,16 +121,14 @@ def my_form_post():
         handler_ = min(handlerJobs, key=lambda handler_: handler_._count_sum if not (handler_.name in handlerAvoid and row['Answering Body'] in handlerAvoid[handler_.name])  else float('inf')  ) 
         handler_.add(row['Answering Body'],row['Count'])
     
-        #questions=[]
-    #Or more prettily...
-    #for h in handlerJobs:
-        #abtxt=''.join([' {} for the {}'.format(b[1], b[0]) for b in h.itemCounts[0]])
-        #questionsoutput = '{} needs to tag {} questions:{}'.format(h.name, h.itemCounts[1],abtxt)
-        #questions.append(questionsoutput)
-    questions = handlerJobs     
-    for i,x in questions.items():
-        print(i,x)  
         
+    #Or more prettily...
+    for h in handlerJobs:
+        abtxt=''.join([' {} for the {}'.format(b[1], b[0]) for b in h.itemCounts[0]])
+        questionsoutput = '{} needs to tag {} questions:{}'.format(h.name, h.itemCounts[1],abtxt)
+        print(questionsoutput)
+        
+    questions = handlerJobs     
          
     return render_template('resultpage.html', questions = questions, handling = handling)
 if __name__ == "__main__":
