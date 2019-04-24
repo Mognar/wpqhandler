@@ -3,7 +3,6 @@
 
 # In[ ]:
 
-
 from flask import Flask, request, render_template
 app = Flask(__name__)
 
@@ -131,6 +130,7 @@ def my_form_post():
     questions = handlerJobs    
     dfq = pd.DataFrame([vars(q) for q in questions])
     print(dfq)
+    dfq.to_csv("license.csv", sep='\t', encoding='utf-8')
          
     return render_template('resultpage.html', questions = questions, handling = handling)
 if __name__ == "__main__":
