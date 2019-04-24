@@ -116,9 +116,9 @@ def my_form_post():
     #This sort of problem can be quite hard to solve exactly, but there are heuristics
     #Eg allocate from largest job to lowest; give next job to person with least load overall
     for ix,row in dfc[~dfc['Answering Body'].isin(handled)].iterrows():
-        random.shuffle(handler_)
         #Note the 'if not' tweak to the allocation so someone who wants to avoid an answering body actually does so...
         handler_ = min(handlerJobs, key=lambda handler_: handler_._count_sum if not (handler_.name in handlerAvoid and row['Answering Body'] in handlerAvoid[handler_.name])  else float('inf')  ) 
+        random.shuffle(handler_)
         handler_.add(row['Answering Body'],row['Count'])
     
         #questions=[]
