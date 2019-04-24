@@ -129,7 +129,7 @@ def my_form_post():
         #print(questionsoutput)
         
     questions = handlerJobs    
-    dfq = pd.DataFrame(questions)
+    dfq = pd.DataFrame([vars(s) for q in questions])
     print(dfq)
          
     return render_template('resultpage.html', questions = questions, handling = handling)
