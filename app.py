@@ -2,9 +2,9 @@
 # coding: utf-8
 
 # In[ ]:
-import os
-from github import Github
-g = Github(os.environ['GITKEY'])
+#import os
+#from github import Github
+#g = Github(os.environ['GITKEY'])
 from flask import Flask, request, render_template
 app = Flask(__name__)
 
@@ -130,21 +130,21 @@ def my_form_post():
         #print(questionsoutput)
         
     questions = handlerJobs   
-    from datetime import datetime
-    timenow= str(datetime.now())
-    dfq = pd.DataFrame([vars(q) for q in questions])
-    timestamp = []
-    for row in dfq['_name']:
-        timestamp.append(timenow)
-    dfq['time created'] = timestamp
-    print(dfq)
-    dfq1 = dfq.to_string()
-    user = g.get_user()
-    repo = user.get_repo("wpqhandler")
-    print(repo)
-    file = repo.get_file_contents("/license.csv")
-    print(file)
-    repo.update_file("license.csv", timenow, dfq1, file.sha)
+    #from datetime import datetime
+    #timenow= str(datetime.now())
+    #dfq = pd.DataFrame([vars(q) for q in questions])
+    #timestamp = []
+    #for row in dfq['_name']:
+   #     timestamp.append(timenow)
+    #dfq['time created'] = timestamp
+    #print(dfq)
+    #dfq1 = dfq.to_string()
+    #user = g.get_user()
+    #repo = user.get_repo("wpqhandler")
+    #print(repo)
+    #file = repo.get_file_contents("/license.csv")
+    #print(file)
+    #repo.update_file("license.csv", timenow, dfq1, file.sha)
 
          
     return render_template('resultpage.html', questions = questions, handling = handling)
