@@ -132,7 +132,7 @@ def my_form_post():
     questions = handlerJobs    
     dfq = pd.DataFrame([vars(q) for q in questions])
     print(dfq)
-    dfq1 = dfq.applymap(str)
+    dfq1 = dfq.to_string()
     from datetime import datetime
     timenow= str(datetime.now())
     user = g.get_user()
