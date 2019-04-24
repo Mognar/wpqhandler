@@ -123,12 +123,14 @@ def my_form_post():
     
         
     #Or more prettily...
-    for h in handlerJobs:
-        abtxt=''.join([' {} for the {}'.format(b[1], b[0]) for b in h.itemCounts[0]])
-        questionsoutput = '{} needs to tag {} questions:{}'.format(h.name, h.itemCounts[1],abtxt)
-        print(questionsoutput)
+    #for h in handlerJobs:
+        #abtxt=''.join([' {} for the {}'.format(b[1], b[0]) for b in h.itemCounts[0]])
+        #questionsoutput = '{} needs to tag {} questions:{}'.format(h.name, h.itemCounts[1],abtxt)
+        #print(questionsoutput)
         
-    questions = handlerJobs     
+    questions = handlerJobs    
+    pandas.DataFrame(questions)
+    df
          
     return render_template('resultpage.html', questions = questions, handling = handling)
 if __name__ == "__main__":
