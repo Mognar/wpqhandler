@@ -129,12 +129,16 @@ def my_form_post():
         #questionsoutput = '{} needs to tag {} questions:{}'.format(h.name, h.itemCounts[1],abtxt)
         #print(questionsoutput)
         
-    questions = handlerJobs    
-    dfq = pd.DataFrame([vars(q) for q in questions])
-    print(dfq)
-    dfq1 = dfq.to_string()
+    questions = handlerJobs   
     from datetime import datetime
     timenow= str(datetime.now())
+    dfq = pd.DataFrame([vars(q) for q in questions])
+    timestamp = []
+    for row in dfq:
+        timestamp.append(timenow)
+    df['time created'] = timestamp
+    print(dfq)
+    dfq1 = dfq.to_string()
     user = g.get_user()
     repo = user.get_repo("wpqhandler")
     print(repo)
