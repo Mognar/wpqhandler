@@ -140,7 +140,10 @@ def my_form_post():
     print(repo)
     file = repo.get_file_contents("/license.csv")
     print(file)
-    repo.update_file("/license.csv", timenow, dfq1, file.sha)
+    try:
+        repo.update_file("/license.csv", timenow, dfq1, file.sha)
+    except GithubException:
+        pass
          
     return render_template('resultpage.html', questions = questions, handling = handling)
 if __name__ == "__main__":
