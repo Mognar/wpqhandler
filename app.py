@@ -142,7 +142,7 @@ def my_form_post():
     print(file)
     try:
         repo.update_file("/license.csv", timenow, dfq1, file.sha)
-    except github.GithubException.GithubException:
+    except Github.GithubException.GithubException:
         pass
          
     return render_template('resultpage.html', questions = questions, handling = handling)
