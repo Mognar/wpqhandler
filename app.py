@@ -134,7 +134,7 @@ def my_form_post():
     timenow= str(datetime.now())
     dfq = pd.DataFrame([vars(q) for q in questions])
     timestamp = []
-    for row in dfq:
+    for row in dfq['_name']:
         timestamp.append(timenow)
     dfq['time created'] = timestamp
     print(dfq)
