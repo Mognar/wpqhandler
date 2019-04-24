@@ -132,7 +132,7 @@ def my_form_post():
     questions = handlerJobs    
     dfq = pd.DataFrame([vars(q) for q in questions])
     print(dfq)
-    dfq = dfq.applymap(str)
+    dfq1 = dfq.applymap(str)
     from datetime import datetime
     timenow= str(datetime.now())
     user = g.get_user()
@@ -140,7 +140,7 @@ def my_form_post():
     print(repo)
     file = repo.get_file_contents("/license.csv")
     print(file)
-    repo.update_file("/license.csv", timenow, dfq, file.sha)
+    repo.update_file("/license.csv", timenow, dfq1, file.sha)
          
     return render_template('resultpage.html', questions = questions, handling = handling)
 if __name__ == "__main__":
