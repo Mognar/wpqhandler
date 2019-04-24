@@ -4,7 +4,9 @@
         {% for q in questions %}
        <div><p><h3>{{ q.name }} has {{ q.itemCounts[1] }} question to index:</h3>
         {% for i in q.itemCounts[0] %}
-            {{ i }}<br />
+             {% for x in i %} 
+                {{ i[1] }} for {{ i[0] }}<br />
+              {% endfor %}
         {% endfor %}</p></div>
         {% endfor %}
     {{ handling }}
