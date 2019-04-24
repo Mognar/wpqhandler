@@ -92,7 +92,7 @@ def my_form_post():
     dfc=df.groupby('Answering Body').size().rename('Count').reset_index().sort_values('Count',ascending=False)
     #dfc.head()
     handlers=handling
-
+    print(handlers)
     #Are there any requirements as to whom particular targeted answering bodies will specifically be allocated to?
     handlerPrefs={}
     #We should perhaps also check that there are no collisions in prefs
@@ -118,7 +118,6 @@ def my_form_post():
     for ix,row in dfc[~dfc['Answering Body'].isin(handled)].iterrows():
         #Note the 'if not' tweak to the allocation so someone who wants to avoid an answering body actually does so...
         handler_ = min(handlerJobs, key=lambda handler_: handler_._count_sum if not (handler_.name in handlerAvoid and row['Answering Body'] in handlerAvoid[handler_.name])  else float('inf')  ) 
-        random.shuffle(handler_)
         handler_.add(row['Answering Body'],row['Count'])
     
         #questions=[]
