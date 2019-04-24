@@ -91,7 +91,7 @@ def my_form_post():
     df
     dfc=df.groupby('Answering Body').size().rename('Count').reset_index().sort_values('Count',ascending=False)
     #dfc.head()
-    handlers=handling
+    handlers=random.shuffle(handling)
     print(handlers)
     #Are there any requirements as to whom particular targeted answering bodies will specifically be allocated to?
     handlerPrefs={}
