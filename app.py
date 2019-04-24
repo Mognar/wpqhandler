@@ -128,8 +128,8 @@ def my_form_post():
         #questionsoutput = '{} needs to tag {} questions:{}'.format(h.name, h.itemCounts[1],abtxt)
         #questions.append(questionsoutput)
     questions = handlerJobs     
-    for i in questions:
-        print(i)  
+    for i,x in questions.items():
+        print(i,x)  
         
          
     return render_template('resultpage.html', questions = questions, handling = handling)
