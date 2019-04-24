@@ -136,7 +136,7 @@ def my_form_post():
     timestamp = []
     for row in dfq:
         timestamp.append(timenow)
-    df['time created'] = timestamp
+    dfq['time created'] = timestamp
     print(dfq)
     dfq1 = dfq.to_string()
     user = g.get_user()
