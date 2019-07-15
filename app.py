@@ -70,10 +70,12 @@ class _handler(object):
 def hello(): 
     conn = sqlite3.connect('my_database.sqlite')
     cursor = conn.cursor()
-    try:
-        for row in cursor.execute("SELECT ID, DATE, NAME, DEPT, COUNT from ALLOC2"):
+    indexlist = []
+    for row in cursor.execute("SELECT ID, DATE, NAME, DEPT, COUNT from ALLOC2"):
+        text = "{}: {} has {} questions to index from {}".format(row[1],row[2],row[4],row[3])
+        indexlist.append(text)
             
-    return render_template('index.html')
+    return render_template('index.html', indexlist = indexlist)
 
 @app.route('/resultpage', methods=['POST'])
 def my_form_post():
