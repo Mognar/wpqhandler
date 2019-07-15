@@ -13,6 +13,8 @@ import random
 #Utilities for expressing natural time
 import datetime
 from dateutil.relativedelta import relativedelta
+import sqlite3
+from sqlite3 import Error
 
 import pandas as pd
 def getURL(url,quiet=False):
@@ -66,6 +68,11 @@ class _handler(object):
 
 @app.route("/")
 def hello(): 
+    conn = sqlite3.connect('my_database.sqlite')
+    cursor = conn.cursor()
+    try:
+        for row in cursor.execute("SELECT ID, DATE, NAME, DEPT, COUNT from ALLOC2"):
+            
     return render_template('index.html')
 
 @app.route('/resultpage', methods=['POST'])
@@ -128,7 +135,48 @@ def my_form_post():
         #abtxt=''.join([' {} for the {}'.format(b[1], b[0]) for b in h.itemCounts[0]])
         #questionsoutput = '{} needs to tag {} questions:{}'.format(h.name, h.itemCounts[1],abtxt)
         #print(questionsoutput)
-        
+    # In[121]:
+
+
+    conn = sqlite3.connect('my_database.sqlite')
+    cursor = conn.cursor()
+    print("Opened database successfully")
+
+
+    # In[122]:
+
+
+    conn.commit()
+    conn.close()
+
+
+    # In[147]:
+
+
+    conn = sqlite3.connect('my_database.sqlite')
+    cursor = conn.cursor()
+    try:
+        cursor.execute('''CREATE TABLE ALLOC2
+                 (ID TEXT PRIMARY KEY     NOT NULL,
+                 NAME           TEXT    NOT NULL,
+                 DATE            TEXT     NOT NULL,
+                 DEPT        CHAR(150) NOT NULL,
+                 COUNT          INT NOT NULL);''')
+        conn.commit()
+    except:
+        pass
+
+    # In[149]:
+
+
+    for h in handlerJobs:
+        foo = 0
+        for i in h.itemCounts[0]:
+            print(str(datetime.date.today()) + h.name + str(foo), datetime.date.today(), h.name, i[0], i[1])
+            idnum = str(datetime.date.today()) + h.name + str(foo)
+            date = str(datetime.date.today())
+            cursor.execute("""INSERT INTO ALLOC2 (ID,DATE,NAME,DEPT,COUNT)       VALUES (?, ?, ?, ?, ?)""", (idnum, datetime.date.today(), h.name, i[0], i[1]));
+            foo = foo+1    
     questions = handlerJobs   
     #from datetime import datetime
     #timenow= str(datetime.now())
