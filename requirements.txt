@@ -4,4 +4,4 @@ requests
 pandas
 datetime
 pyGithub
-sqlite3
+db-sqlite3
